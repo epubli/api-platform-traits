@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Document;
+namespace Epubli\ApiPlatform\TraitBundle;
 
 use DateTime;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;

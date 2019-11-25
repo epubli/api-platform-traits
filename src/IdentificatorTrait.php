@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Document;
+namespace Epubli\ApiPlatform\TraitBundle;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 use ApiPlatform\Core\Annotation as ApiPlatform;
