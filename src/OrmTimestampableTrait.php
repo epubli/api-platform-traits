@@ -11,7 +11,7 @@ trait OrmTimestampableTrait
 {
     /**
      * @var DateTime
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      * @Gedmo\Timestampable(on="create")
      * @ApiPlatform\ApiProperty(writable=false)
      */
@@ -19,7 +19,7 @@ trait OrmTimestampableTrait
 
     /**
      * @var DateTime
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      * @Gedmo\Timestampable(on="update")
      * @ApiPlatform\ApiProperty(writable=false)
      */
