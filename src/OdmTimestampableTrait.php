@@ -7,7 +7,7 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use ApiPlatform\Core\Annotation as ApiPlatform;
 
-trait TimestampableTrait
+trait OdmTimestampableTrait
 {
     /**
      * @var DateTime

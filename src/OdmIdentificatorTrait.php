@@ -5,7 +5,7 @@ namespace Epubli\ApiPlatform\TraitBundle;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 use ApiPlatform\Core\Annotation as ApiPlatform;
 
-trait IdentificatorTrait
+trait OdmIdentificatorTrait
 {
     /**
      * @var int
