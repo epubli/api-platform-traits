@@ -4,6 +4,15 @@ Package to ease the use of common properties needed for the api platform package
 
 You may want to have a look at: https://github.com/epubli/api-platform-test
 
+### Content of this package
+
+- OrmIdentificatorTrait
+- OrmTimestampableTrait
+- OrmSoftDeletableTrait
+- OdmIdentificatorTrait
+- OdmTimestampableTrait
+- OdmSoftDeletableTrait
+
 ### Usage of ORM Timestampable and SoftDeletable
 
 Add the stof doctrine extension:
