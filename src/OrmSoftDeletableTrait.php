@@ -6,6 +6,7 @@ use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use ApiPlatform\Core\Annotation as ApiPlatform;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Trait OrmSoftDeletableTrait

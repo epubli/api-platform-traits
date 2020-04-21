@@ -4,6 +4,7 @@ namespace Epubli\ApiPlatform\TraitBundle;
 
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation as ApiPlatform;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Trait OrmIdentificatorTrait
