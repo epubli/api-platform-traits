@@ -2,9 +2,12 @@
 
 namespace Epubli\ApiPlatform\TraitBundle;
 
-use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 use ApiPlatform\Core\Annotation as ApiPlatform;
+// use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM; - no longer included
 
+/**
+ * @deprecated no mongo db support for now
+ */
 trait OdmIdentificatorTrait
 {
     /**
@@ -12,5 +15,5 @@ trait OdmIdentificatorTrait
      * @ODM\Id(strategy="INCREMENT", type="int")
      * @ApiPlatform\ApiProperty(writable=false)
      */
-    public $id;
+    public int $id;
 }

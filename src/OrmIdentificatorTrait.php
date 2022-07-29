@@ -2,24 +2,27 @@
 
 namespace Epubli\ApiPlatform\TraitBundle;
 
-use Doctrine\ORM\Mapping as ORM;
-use ApiPlatform\Core\Annotation as ApiPlatform;
+use ApiPlatform\Core\Annotation\ApiProperty;
+use Doctrine\DBAL\Types\Types;
+use Doctrine\ORM\Mapping\Column;
+use Doctrine\ORM\Mapping\GeneratedValue;
+use Doctrine\ORM\Mapping\Id;
+use Gedmo\Mapping\Annotation\Timestampable;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Trait OrmIdentificatorTrait
+ * If used you should implement OrmIdentificatorInterface
  * @package Epubli\ApiPlatform\TraitBundle
+ * @see OrmIdentificatorInterface
  */
 trait OrmIdentificatorTrait
 {
-    /**
-     * @Groups({"get"})
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     * @ApiPlatform\ApiProperty(writable=false)
-     */
-    private $id;
+    #[Id, GeneratedValue, Column(type: Types::INTEGER)]
+    #[Timestampable(on: 'create')]
+    #[ApiProperty(writable: false, required: false)]
+    #[Groups('get')]
+    private ?int $id;
 
     public function getId(): ?int
     {

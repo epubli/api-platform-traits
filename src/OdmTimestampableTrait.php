@@ -3,10 +3,13 @@
 namespace Epubli\ApiPlatform\TraitBundle;
 
 use DateTime;
-use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
+// use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM; - no longer included
 use Gedmo\Mapping\Annotation as Gedmo;
 use ApiPlatform\Core\Annotation as ApiPlatform;
 
+/**
+ * @deprecated no mongo db support for now
+ */
 trait OdmTimestampableTrait
 {
     /**
@@ -15,7 +18,7 @@ trait OdmTimestampableTrait
      * @Gedmo\Timestampable(on="create")
      * @ApiPlatform\ApiProperty(writable=false)
      */
-    public $createdAt;
+    public DateTime $createdAt;
 
     /**
      * @var DateTime
@@ -23,5 +26,5 @@ trait OdmTimestampableTrait
      * @Gedmo\Timestampable(on="update")
      * @ApiPlatform\ApiProperty(writable=false)
      */
-    public $updatedAt;
+    public DateTime $updatedAt;
 }

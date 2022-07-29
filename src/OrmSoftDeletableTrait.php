@@ -2,59 +2,42 @@
 
 namespace Epubli\ApiPlatform\TraitBundle;
 
-use DateTime;
-use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
-use ApiPlatform\Core\Annotation as ApiPlatform;
+use ApiPlatform\Core\Annotation\ApiProperty;
+use Doctrine\DBAL\Types\Types;
+use Doctrine\ORM\Mapping\Column;
 use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * Trait OrmSoftDeletableTrait
- * @package Epubli\ApiPlatform\TraitBundle
+ * ## Trait OrmSoftDeletableTrait
  * Make sure to add the validation group "get" to your normalization context,
- * if you are definining the output of routes manually.
+ * if you are defining the output of routes manually.
  * Add the following annotation to the class in which you are using this trait:
- * [at]Gedmo\SoftDeleteable(fieldName="deletedAt", timeAware=false, hardDelete=false)
+ * Add implements OrmSoftDeletableInterface as well
+ *
+ * ### \#[Gedmo\SoftDeleteable(fieldName: 'deletedAt', timeAware: false, hardDelete: false)]
+ * @package Epubli\ApiPlatform\TraitBundle
+ * @see OrmSoftDeletableInterface
  */
 trait OrmSoftDeletableTrait
 {
-    /**
-     * @Groups("get")
-     * @var DateTime
-     * @ORM\Column(type="datetime", nullable=true)
-     * @ApiPlatform\ApiProperty(writable=false)
-     */
-    protected $deletedAt;
+    #[Column(name: 'deleted_at', type: Types::DATETIME_MUTABLE, nullable: true)]
+    #[ApiProperty(writable: false, required: false)]
+    #[Groups('get')]
+    protected ?\DateTime $deletedAt;
 
-    /**
-     * Sets deletedAt.
-     *
-     * @param DateTime|null $deletedAt
-     *
-     * @return $this
-     */
-    public function setDeletedAt(DateTime $deletedAt = null)
+    public function setDeletedAt(?\DateTime $deletedAt = null): self
     {
         $this->deletedAt = $deletedAt;
 
         return $this;
     }
 
-    /**
-     * Returns deletedAt.
-     *
-     * @return DateTime|null
-     */
-    public function getDeletedAt(): ?DateTime
+    public function getDeletedAt(): ?\DateTime
     {
         return $this->deletedAt;
     }
 
-    /**
-     * Is deleted?
-     * @Groups("get")
-     * @return bool
-     */
+    #[Groups('get')]
     public function isDeleted(): bool
     {
         return null !== $this->deletedAt;
